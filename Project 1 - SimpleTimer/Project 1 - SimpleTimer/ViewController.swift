@@ -42,6 +42,10 @@ class ViewController: UIViewController {
      7、打印格式化
         String(format: "%.1f", t)
         和OC一样的调用方法
+     
+     8、矢量图使用
+        PDF格式的矢量图，可以直接使用Assets管理，这样，程序会自动生成对应的png@1x，@2x，@3x图片，程序中
+        直接按生成的png图片使用即可
      */
     
     var playBtn : UIButton!
@@ -86,15 +90,15 @@ class ViewController: UIViewController {
         playBtn.frame = CGRect.init(x: 0, y: h/2, width: w/2, height: h/2)
         playBtn.addTarget(self, action: #selector(playTimer(sender:)), for: UIControlEvents.touchUpInside)
         playBtn.backgroundColor = UIColor(red: 84/255.0, green: 93/255.0, blue: 252/255.0, alpha: 1.0)
-        playBtn.setTitle("play", for: UIControlState.normal)
+        playBtn.setImage(UIImage.init(named: "play"), for: UIControlState.normal)
         playBtn.setTitleColor(UIColor.brown, for: UIControlState.normal)
         playBtn.titleLabel?.font = UIFont.systemFont(ofSize: 60)
         self.view.addSubview(playBtn)
         
-        stopBtn = UIButton.init(type: UIButtonType.system)
+        stopBtn = UIButton.init(type: UIButtonType.custom)
         stopBtn.frame = CGRect(x: w/2, y: h/2, width: w/2, height: h/2)
         stopBtn.addTarget(self, action: #selector(stopTimer(sender:)), for: UIControlEvents.touchUpInside)
-        stopBtn.setTitle("pause", for: UIControlState.normal)
+        stopBtn.setImage(UIImage.init(named: "pause"), for: UIControlState.normal)
         stopBtn.setTitleColor(UIColor.brown, for: UIControlState.normal)
         stopBtn.titleLabel?.font = UIFont.systemFont(ofSize: 60)
         stopBtn.backgroundColor = UIColor(red: 102/255.0, green: 190/255.0, blue: 8/255.0, alpha: 1.0)
